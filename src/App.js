@@ -1,9 +1,9 @@
-import Container from './components/Container';
+import Parent from './components/Parent';
 
 function App() {
   return (
     <div className="App">
-      <Container/>
+      <Parent/>
     </div>
   );
 }
