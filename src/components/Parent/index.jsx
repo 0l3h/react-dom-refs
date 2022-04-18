@@ -1,11 +1,13 @@
 import React, {useRef, useEffect, useState} from 'react';
-import Child from './../Child';
+import Element from '../Element';
+import Input from '../Input';
 
 function Parent() {
     const count = useRef(0);
     const inputRef = useRef(null);
     const [inputValue, setInputValue] = useState('');
     const elementRef = useRef(null);
+    const buttonRef = useRef(null);
 
     useEffect(() => {
         count.current += 1;
@@ -20,6 +22,11 @@ function Parent() {
         setInputValue(event.target.value);
     };
 
+    const getElement = element => {
+        console.log(element);
+    };
+
+
     return (
         <>
             <h1>Example 1</h1>
@@ -33,7 +40,12 @@ function Parent() {
 
             <h1>Example 3</h1>
             <p>Getting child component input focused after each render</p>
-            <Child ref={elementRef} changeValue={changeValue}/>
+            <Input ref={elementRef} changeValue={changeValue}/>
+
+            <h1>Example 4</h1>
+            <p>Get element using callbakc ref</p>
+            <button ref={buttonRef} onClick={getElement}>get element</button>
+            <Element />
         </>
     );
 }
