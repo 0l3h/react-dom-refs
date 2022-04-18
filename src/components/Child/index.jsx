@@ -1,18 +1,13 @@
-import React, { Component } from 'react'
+import React, {useState} from 'react';
 
-export default class Child extends Component {
-  constructor(props) {
-    super(props);
-    this.count = React.createRef(0)
+const Child = React.forwardRef((props, ref) => {
+  const [value, setValue] = useState('');
+
+  const changeValue = event => {
+    setValue(event.target.value);
   }
 
-  increment = () => {
-    this.count += 1;
-  };
+  return <input ref={ref} value={value} onChange={changeValue}/>
+})
 
-  render() {
-    return (
-      <div ref={this.count}></div>
-    )
-  }
-}
+export default Child;
