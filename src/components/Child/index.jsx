@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Child = React.forwardRef((props, ref) => {
+function Child (props, ref) {
   const [value, setValue] = useState('');
 
   const changeValue = event => {
@@ -8,6 +8,6 @@ const Child = React.forwardRef((props, ref) => {
   }
 
   return <input ref={ref} value={value} onChange={changeValue}/>
-})
+};
 
-export default Child;
+export default React.forwardRef(Child);
